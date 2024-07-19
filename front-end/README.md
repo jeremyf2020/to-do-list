@@ -10,10 +10,11 @@ This project is a to-do list application built using React for the front end, No
 
    - Display Tasks
    - Add Task Function
+   - Delete Task Function
+   - Toggle Task Function
 
    --- finished ---
 
-   - Delete Task Function
    - modify Task Function
 
    * Add Categories
