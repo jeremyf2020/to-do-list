@@ -13,11 +13,12 @@ This project is a to-do list application built using React for the front end, No
 
    --- finished ---
 
-   - Add Categories
+   - Delete Task Function
+   - modify Task Function
 
-   * Local Storage
-   * Delete Task Function
-   * modify Task Function
+   * Add Categories
+
+   - Local Storage
 
 2. Back End
    - User Authentication
@@ -43,7 +44,7 @@ This project is a to-do list application built using React for the front end, No
 | Field              | Type     | Description                                |
 | ------------------ | -------- | ------------------------------------------ |
 | id                 | int      | Primary key, unique ID                     |
-| name               | string   | Name of the task                           |
+| text               | string   | Text of the task                           |
 | category_id        | int      | Foreign key to Categories table            |
 | user_id            | int      | Foreign key to Users table                 |
 | time_create        | datetime | Timestamp of when the task was created     |
