@@ -10,6 +10,17 @@ export default function tasksReducer(tasks, action) {
                 }
             ];
         }
+        case "delete_task": {
+            return tasks.filter(task => task.id !== action.id)
+        }
+        case "toggle_task": {
+            return tasks.map(t => {
+                if (t.id === action.id) {
+                    t.done = !action.done
+                }
+                return t;
+            })
+        }
         default: {
             throw Error("Unknown action: " + action.type);
         }
