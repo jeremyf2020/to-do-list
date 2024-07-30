@@ -6,7 +6,6 @@ import InputArea from './components/InputArea';
 
 export default function App() {
   const [tasks, dispatch] = useReducer(tasksReducer, []);
-  /* using state not ref because [TODO: add task suggestion later] */
 
   return (
     <>

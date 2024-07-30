@@ -1,4 +1,6 @@
 export default function TasksBoard({ tasks, dispatch }) {
+    console.log('rendering Tasks Board')
+
     return (<ul>
         {tasks.map(task =>
             <li key={task.id}>
