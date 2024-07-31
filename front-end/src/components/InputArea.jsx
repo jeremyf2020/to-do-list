@@ -1,16 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react'
 import OptionMenu from './OptionMenu';
 import { handleSubmit } from '../functions/newTaskFormSubmit'
-import { getCategoriesFromStorage } from '../functions/storageHandler';
 
 
 
-export default function InputArea({ dispatch }) {
+export default function InputArea({ dispatch, categories, setCategories }) {
     // console.log('rendering InputArea')
     /* using state not ref because [TODO: add task suggestion later] */
     const [taskInput, setTaskInput] = useState("");
     const [showOptionMenu, setShowOptionMenu] = useState(false);
-    const [categories, setCategories] = useState(getCategoriesFromStorage);
 
     // useEffect(() => {
     //     const categoryId = addNewCategory("test");
@@ -18,6 +16,8 @@ export default function InputArea({ dispatch }) {
     useEffect(() => {
         localStorage.setItem('categories', JSON.stringify(categories))
     }, [categories])
+
+
 
     function addNewCategory(newStr) {
         // Check the input is valid
