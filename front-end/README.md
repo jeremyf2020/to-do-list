@@ -45,7 +45,7 @@ This project is a to-do list application built using React for the front end, No
 | Field              | Type     | Description                                |
 | ------------------ | -------- | ------------------------------------------ |
 | id                 | int      | Primary key, unique ID                     |
-| text               | string   | Text of the task                           |
+| details            | string   | Text of the task                           |
 | category_id        | int      | Foreign key to Categories table            |
 | user_id            | int      | Foreign key to Users table                 |
 | time_create        | datetime | Timestamp of when the task was created     |

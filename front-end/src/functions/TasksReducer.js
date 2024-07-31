@@ -3,11 +3,7 @@ export default function tasksReducer(tasks, action) {
         case "add_task": {
             return [
                 ...tasks,
-                {
-                    id: crypto.randomUUID(),
-                    text: action.text,
-                    done: false,
-                }
+                action.object
             ];
         }
         case "delete_task": {
