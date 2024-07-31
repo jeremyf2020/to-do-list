@@ -1,17 +1,13 @@
-export default function TasksBoard({ tasks, dispatch }) {
+import CategoryList from "./CategoryList"
+
+export default function TasksBoard({ categories, tasks, dispatch }) {
     console.log('rendering Tasks Board')
 
-    return (<ul>
-        {tasks.map(task =>
-            <li key={task.id}>
-                <span style={{ textDecoration: task.done ? 'line-through' : 'none' }}
-                    onClick={() => dispatch({ type: 'toggle_task', id: task.id, done: task.done })}>
-                    {task.text}
-                </span>
-                <button>Edit</button>
-                <button onClick={() => dispatch({ type: 'delete_task', id: task.id })}>Delete</button>
-            </li>
-        )}
-    </ul>
+    return (
+        <div>
+            {Object.entries(categories).map(([objkey, value]) => (
+                <CategoryList key={value} title={objkey} tasks={tasks} id={value} />
+            ))}
+        </div>
     )
 }
