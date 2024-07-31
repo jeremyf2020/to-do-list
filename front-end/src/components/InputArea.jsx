@@ -20,6 +20,10 @@ export default function InputArea({ dispatch }) {
     }, [categories])
 
     function addNewCategory(newStr) {
+        // Check the input is valid
+        if (newStr === "" || newStr === "") {
+            return (categories["none"])
+        }
         // Check the existing categories to ensure each one is unique
         for (const property in categories) {
             if (property.toLowerCase() === newStr.toLowerCase()) {
@@ -51,9 +55,14 @@ export default function InputArea({ dispatch }) {
 
         // Read the form data
         const formData = new FormData(e.target);
+        // const formJson = Object.fromEntries(formData.entries());
+        // console.log(formJson)
+        // console.log(formData.get("category"))
+
 
         // Add Task
-        const categoryId = addNewCategory(formData.get("category"));
+        const categoryStr = formData.get("category") || "";
+        const categoryId = addNewCategory(categoryStr);
         addNewTask({
             id: crypto.randomUUID(),
             text: formData.get("newTask"),
