@@ -72,6 +72,7 @@ export default function InputArea({ dispatch, categories, setCategories }) {
         addNewTask({
             id: crypto.randomUUID(),
             text: formData.get("newTask"),
+            done: false,
             category_id: categoryId,
             time_create: new Date(Date.now()).toUTCString(),
             expectedTime_start: formData.get("startTime"),

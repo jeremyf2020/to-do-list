@@ -17,6 +17,14 @@ export default function tasksReducer(tasks, action) {
                 return t;
             })
         }
+        case "edit_task": {
+            return tasks.map(t => {
+                if (t.id === action.id) {
+                    t.text = action.text
+                }
+                return t;
+            })
+        }
         default: {
             throw Error("Unknown action: " + action.type);
         }

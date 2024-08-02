@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+import TaskLine from './TaskLine'
 
-export default function CategoryList({ title, tasks, categoryId }) {
+export default function CategoryList({ title, tasks, categoryId, dispatch }) {
     const [showList, setShowList] = useState(true)
-
 
     return (
         <>
@@ -18,14 +18,7 @@ export default function CategoryList({ title, tasks, categoryId }) {
                     {tasks.map(task => {
                         if (task.category_id === categoryId) {
                             return (
-                                <li key={task.id}>
-                                    <span style={{ textDecoration: task.done ? 'line-through' : 'none' }}
-                                        onClick={() => dispatch({ type: 'toggle_task', id: task.id, done: task.done })}>
-                                        {task.text}
-                                    </span>
-                                    <button>Edit</button>
-                                    <button onClick={() => dispatch({ type: 'delete_task', id: task.id })}>Delete</button>
-                                </li>
+                                <TaskLine key={task.id} task={task} dispatch={dispatch} />
                             )
                         }
                     }

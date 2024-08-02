@@ -12,14 +12,13 @@ This project is a to-do list application built using React for the front end, No
    - Add Task Function
    - Delete Task Function
    - Toggle Task Function
+   * Add Categories
+   - Local Storage
 
    --- finished ---
 
    - modify Task Function
 
-   * Add Categories
-
-   - Local Storage
 
 2. Back End
    - User Authentication
