@@ -1,7 +1,6 @@
 import CategoryList from "./CategoryList"
 
 export default function TasksBoard({ categories, tasks, dispatch }) {
-    console.log('rendering Tasks Board')
 
     return (
         <div>

@@ -3,7 +3,6 @@ import tasksReducer from './functions/TasksReducer';
 import TasksBoard from './components/TasksBoard';
 import InputArea from './components/InputArea';
 import { getCategoriesFromStorage, getTasksFromStorage } from './functions/storageHandler';
-import CategoryList from './components/CategoryList';
 
 
 export default function App() {
@@ -16,13 +15,8 @@ export default function App() {
 
   return (
     <>
-      {/* <CategoryBar categories={categories} /> */}
       <TasksBoard tasks={tasks} categories={categories} dispatch={dispatch} />
       <InputArea dispatch={dispatch} categories={categories} setCategories={setCategories} />
-      <div>
-        {JSON.stringify(tasks)}
-      </div>
-
     </>
   )
 }

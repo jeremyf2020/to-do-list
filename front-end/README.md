@@ -12,23 +12,27 @@ This project is a to-do list application built using React for the front end, No
    - Add Task Function
    - Delete Task Function
    - Toggle Task Function
+
    * Add Categories
+
    - Local Storage
+   - modify Task Function
 
    --- finished ---
 
-   - modify Task Function
+   refactor code, use useContext for category?
 
+2. CSS
 
-2. Back End
+   - Add Tailwind CSS
+   - Custom CSS for Components
+   - Icon library
+
+3. Back End
    - User Authentication
    - Share To-Do List
    - Sync Local Storage with Server
    - Task Sharing and Permissions
-3. CSS
-   - Add Tailwind CSS
-   - Custom CSS for Components
-   - Icon library
 4. Additional Features
    - Notifications and Reminders
    - Due Dates and Priorities
