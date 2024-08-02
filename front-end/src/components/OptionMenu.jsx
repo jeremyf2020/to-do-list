@@ -2,9 +2,8 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
 const samplecategory = ['None', 'C.S.', 'English', 'Home']
 
-export default function OptionMenu() {
+export default function OptionMenu({ showTimeError }) {
     const [categoryBtnSelection, setCategoryBtnSelection] = useState("None");
-
     const [disableCustomInput, setDisableCustomInput] = useState(true);
     const categoryInputRef = useRef("");
 
@@ -36,6 +35,7 @@ export default function OptionMenu() {
                 <label>Start Time<input type="datetime-local" name="startTime" /> </label>
                 <br />
                 <label>End Time<input type="datetime-local" name="endTime" /> </label>
+                {showTimeError !== "" && <div>{showTimeError}</div>}
             </div>
         </>
     )

@@ -9,6 +9,7 @@ export default function InputArea({ dispatch, categories, setCategories }) {
     /* using state not ref because [TODO: add task suggestion later] */
     const [taskInput, setTaskInput] = useState("");
     const [showOptionMenu, setShowOptionMenu] = useState(false);
+    const [showTimeError, setShowTimeError] = useState("");
 
     // useEffect(() => {
     //     const categoryId = addNewCategory("test");
@@ -63,6 +64,11 @@ export default function InputArea({ dispatch, categories, setCategories }) {
         // Add Task
         const categoryStr = formData.get("category") || "";
         const categoryId = addNewCategory(categoryStr);
+
+        if ((formData.get("endTime")) < formData.get("startTime")) {
+            setShowTimeError("End time must be later than start time")
+            return
+        }
         addNewTask({
             id: crypto.randomUUID(),
             text: formData.get("newTask"),
@@ -89,7 +95,7 @@ export default function InputArea({ dispatch, categories, setCategories }) {
                 {JSON.stringify(categories)}
             </div>
 
-            {showOptionMenu && <OptionMenu />}
+            {showOptionMenu && <OptionMenu showTimeError={showTimeError} />}
         </form>
     )
 }
