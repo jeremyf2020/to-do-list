@@ -1,7 +1,5 @@
 import React, { forwardRef, useEffect, useRef, useState } from 'react'
 
-const samplecategory = ['None', 'C.S.', 'English', 'Home']
-
 export default function OptionMenu({ showTimeError }) {
     const [categoryBtnSelection, setCategoryBtnSelection] = useState("None");
     const [disableCustomInput, setDisableCustomInput] = useState(true);

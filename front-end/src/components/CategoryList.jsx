@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import TaskLine from './TaskLine'
 
-export default function CategoryList({ title, tasks, categoryId, dispatch }) {
+export default function CategoryList({ title, tasks, categoryId, tasksDispatch }) {
     const [showList, setShowList] = useState(true)
 
     return (
@@ -18,7 +18,7 @@ export default function CategoryList({ title, tasks, categoryId, dispatch }) {
                     {tasks.map(task => {
                         if (task.category_id === categoryId) {
                             return (
-                                <TaskLine key={task.id} task={task} dispatch={dispatch} />
+                                <TaskLine key={task.id} task={task} tasksDispatch={tasksDispatch} />
                             )
                         }
                     }

@@ -1,14 +1,14 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import OptionMenu from './OptionMenu';
-import { handleSubmit } from '../functions/newTaskFormSubmit'
+import { CategoriesContext } from "../App";
 
-
-
-export default function InputArea({ dispatch, categories, setCategories }) {
+export default function InputArea({ tasksDispatch }) {
     /* using state not ref because [TODO: add task suggestion later] */
     const [taskInput, setTaskInput] = useState("");
     const [showOptionMenu, setShowOptionMenu] = useState(false);
     const [showTimeError, setShowTimeError] = useState("");
+    const { categories, setCategories } = useContext(CategoriesContext);
+
 
     useEffect(() => {
         localStorage.setItem('categories', JSON.stringify(categories))
@@ -32,7 +32,7 @@ export default function InputArea({ dispatch, categories, setCategories }) {
     }
 
     function addNewTask(newObj) {
-        dispatch({ type: 'add_task', object: newObj })
+        tasksDispatch({ type: 'add_task', object: newObj })
         setTaskInput('');
     }
 
@@ -40,14 +40,14 @@ export default function InputArea({ dispatch, categories, setCategories }) {
         // Prevent the browser from reloading the page
         e.preventDefault();
 
+        // Read the form data
+        const formData = new FormData(e.target);
+
         // check the form is valid (time)
         if ((formData.get("endTime")) < formData.get("startTime")) {
             setShowTimeError("End time must be later than start time")
             return
         }
-
-        // Read the form data
-        const formData = new FormData(e.target);
 
         // Add Task
         const categoryStr = formData.get("category") || "";
