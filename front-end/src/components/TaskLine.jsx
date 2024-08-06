@@ -1,3 +1,4 @@
+import { CircleX, Pencil, Save } from 'lucide-react';
 import React, { useRef, useState } from 'react'
 
 export default function TaskLine({ task, tasksDispatch }) {
@@ -19,8 +20,8 @@ export default function TaskLine({ task, tasksDispatch }) {
                     {task.text}
                 </span>
             }
-            <button onClick={handleEdit}>{editing ? "Save" : "edit"}</button>
-            <button onClick={() => tasksDispatch({ type: 'delete_task', id: task.id })}>Delete</button>
+            <button onClick={handleEdit}>{editing ? <Save /> : <Pencil />}</button>
+            <button onClick={() => tasksDispatch({ type: 'delete_task', id: task.id })}><CircleX /></button>
         </li>
     )
 }
