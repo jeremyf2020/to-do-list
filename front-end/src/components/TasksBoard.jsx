@@ -6,7 +6,7 @@ export default function TasksBoard({ tasks, tasksDispatch }) {
     const { categories } = useContext(CategoriesContext);
 
     return (
-        <div className="p-3">
+        <div className="p-3 flex-1 overflow-auto">
             {Object.entries(categories).map(([objkey, value]) => (
                 <CategoryList key={objkey} title={value} tasks={tasks} categoryId={objkey} tasksDispatch={tasksDispatch} />
             ))}

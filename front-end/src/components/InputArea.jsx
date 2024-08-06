@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import OptionMenu from './OptionMenu';
 import { CategoriesContext } from "../App";
+import { CirclePlus } from 'lucide-react';
 
 export default function InputArea({ tasksDispatch }) {
     /* using state not ref because [TODO: add task suggestion later] */
@@ -70,13 +71,12 @@ export default function InputArea({ tasksDispatch }) {
 
 
     return (
-        <form method="post" onSubmit={(e) => handleSubmit(e)}>
-            <label>
-                Add to-do task:
-                <input onFocus={() => setShowOptionMenu(true)} name="newTask" value={taskInput} onChange={e => setTaskInput(e.target.value)} />
+        <form className='px-4 py-2 flex justify-between relative h-10 bg-[#EABFA7]' method="post" onSubmit={(e) => handleSubmit(e)}>
+            <label className='relative'>
+                Add to-do task: {" "}
+                <input className="flex-1 rounded-full" onFocus={() => setShowOptionMenu(true)} name="newTask" value={taskInput} onChange={e => setTaskInput(e.target.value)} />
+                <button className='absolute right-1 top-1'><CirclePlus size={16} strokeWidth={1} /></button>
             </label>
-            <button>+</button>
-
             {showOptionMenu && <OptionMenu showTimeError={showTimeError} />}
         </form>
     )

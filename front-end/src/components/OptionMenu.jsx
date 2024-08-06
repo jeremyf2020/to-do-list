@@ -18,7 +18,7 @@ export default function OptionMenu({ showTimeError }) {
     }
 
     return (
-        <>
+        <div className='absolute bottom-10 bg-[#ffd2b9] left-0 p-4 animate-slide-up rounded-t-lg'>
             <div >
                 Categories:
                 <div className={`btn ${categoryBtnSelection === "None" && "active"}`}
@@ -35,7 +35,7 @@ export default function OptionMenu({ showTimeError }) {
                 <label>End Time<input type="datetime-local" name="endTime" /> </label>
                 {showTimeError !== "" && <div>{showTimeError}</div>}
             </div>
-        </>
+        </div>
     )
 }
 
