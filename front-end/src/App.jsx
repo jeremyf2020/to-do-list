@@ -3,6 +3,7 @@ import tasksReducer from './functions/TasksReducer';
 import TasksBoard from './components/TasksBoard';
 import InputArea from './components/InputArea';
 import { getCategoriesFromStorage, getTasksFromStorage } from './functions/storageHandler';
+import CatergoryBar from './components/CatergoryBar';
 
 export const CategoriesContext = createContext(null);
 
@@ -15,9 +16,12 @@ export default function App() {
   }, [tasks])
 
   return (
-    <CategoriesContext.Provider value={{ categories, setCategories }}>
-      <TasksBoard tasks={tasks} tasksDispatch={tasksDispatch} />
-      <InputArea tasksDispatch={tasksDispatch} />
+    <CategoriesContext.Provider value={{ categories, setCategories }} >
+      <div className='bg-orange-100 h-[900px] w-[760px] py-2'>
+        <CatergoryBar />
+        <TasksBoard tasks={tasks} tasksDispatch={tasksDispatch} />
+        <InputArea tasksDispatch={tasksDispatch} />
+      </div>
     </CategoriesContext.Provider>
   )
 }

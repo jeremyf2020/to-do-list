@@ -7,9 +7,8 @@ export default function CategoryList({ title, tasks, categoryId, tasksDispatch }
     return (
         <>
             {
-                title !== "none" &&
                 <div>
-                    <h2 >{title}</h2>
+                    <h2 className='text-xl font-bold text-gray-800' >{title !== "none" ? title : "Default"}</h2>
                     <button onClick={() => { setShowList(!showList) }}>{showList ? "Close" : "Expand"}</button>
                 </div>
             }

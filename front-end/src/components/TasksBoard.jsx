@@ -6,9 +6,9 @@ export default function TasksBoard({ tasks, tasksDispatch }) {
     const { categories } = useContext(CategoriesContext);
 
     return (
-        <div>
+        <div className="p-3">
             {Object.entries(categories).map(([objkey, value]) => (
-                <CategoryList key={value} title={objkey} tasks={tasks} categoryId={value} tasksDispatch={tasksDispatch} />
+                <CategoryList key={objkey} title={value} tasks={tasks} categoryId={objkey} tasksDispatch={tasksDispatch} />
             ))}
         </div>
     )

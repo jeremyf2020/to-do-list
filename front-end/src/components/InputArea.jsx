@@ -27,7 +27,7 @@ export default function InputArea({ tasksDispatch }) {
         }
         // Add a new category if no duplicate
         const newUUID = crypto.randomUUID();
-        setCategories({ ...categories, [newStr]: newUUID });
+        setCategories({ ...categories, [newUUID]: newStr });
         return newUUID;
     }
 

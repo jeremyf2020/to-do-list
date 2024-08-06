@@ -5,6 +5,10 @@ export function getTasksFromStorage() {
 
 export function getCategoriesFromStorage() {
     const savedCategories = localStorage.getItem('categories');
-    return savedCategories ? new Object(JSON.parse(savedCategories)) : { "none": crypto.randomUUID() };
+
+    return savedCategories ? new Object(JSON.parse(savedCategories)) : { [getUUID()]: "All" };
 }
 
+function getUUID() {
+    return crypto.randomUUID()
+}
