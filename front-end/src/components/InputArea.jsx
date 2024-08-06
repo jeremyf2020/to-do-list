@@ -52,7 +52,12 @@ export default function InputArea({ tasksDispatch }) {
 
         // Add Task
         const categoryStr = formData.get("category") || "";
-        const categoryId = addNewCategory(categoryStr);
+        let categoryId;
+        if (formData.get("category") === null) {
+            categoryId = Object.keys(categories).find(key => categories[key] === "All");
+        } else {
+            categoryId = addNewCategory(categoryStr);
+        }
 
         addNewTask({
             id: crypto.randomUUID(),
@@ -72,9 +77,9 @@ export default function InputArea({ tasksDispatch }) {
 
     return (
         <form className='px-4 py-2 flex justify-between relative h-10 bg-[#EABFA7]' method="post" onSubmit={(e) => handleSubmit(e)}>
-            <label className='relative'>
-                Add to-do task: {" "}
-                <input className="flex-1 rounded-full" onFocus={() => setShowOptionMenu(true)} name="newTask" value={taskInput} onChange={e => setTaskInput(e.target.value)} />
+            <label className='flex items-center w-full relative '>
+                Add to-do task:
+                <input className="flex-1 rounded-full ml-2 px-2 " onFocus={() => setShowOptionMenu(true)} name="newTask" value={taskInput} onChange={e => setTaskInput(e.target.value)} />
                 <button className='absolute right-1 top-1'><CirclePlus size={16} strokeWidth={1} /></button>
             </label>
             {showOptionMenu && <OptionMenu showTimeError={showTimeError} />}

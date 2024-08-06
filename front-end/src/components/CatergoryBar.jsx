@@ -1,19 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { CategoriesContext } from '../App';
 
 export default function CatergoryBar() {
     const { categories, setCategories } = useContext(CategoriesContext);
-
-    const selectedSCategory = "All"
+    const [selectedCategory, setSelectedCategory] = useState("All");
 
     return (
         <div className='flex justify-between items-center relative'>
             <div className='flex justify-start mx-2 overflow-x-auto'>
                 {Object.entries(categories).map(([objkey, value]) => (
-                    <div
-                        className={`flex justify-start mx-1 rounded-xl  px-2 
-                            ${selectedSCategory === value ? "bg-amber-600 text-lime-50" : "bg-white"}`}
-                        key={objkey} >{value} </div>
+                    <input
+                        className={`mx-1 rounded-xl cursor-pointer text-center outline-none border-none
+                            ${selectedCategory === value ? "bg-amber-600 text-lime-50" : "bg-white"}`}
+                        key={objkey} defaultValue={value} readOnly size={value.length}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            setSelectedCategory(value);
+
+                        }}
+                    />
                 ))
                 }
             </div >

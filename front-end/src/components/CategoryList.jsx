@@ -7,7 +7,7 @@ export default function CategoryList({ title, tasks, categoryId, tasksDispatch }
 
     return (
         <>
-            <div className='flex  '>
+            <div className='flex'>
                 <button onClick={() => { setShowList(!showList) }}>{showList ? <ChevronDown /> : <ChevronRight />}</button>
                 <h2 className='text-xl font-bold ' >{title !== "All" ? title : "Default"}</h2>
             </div>
