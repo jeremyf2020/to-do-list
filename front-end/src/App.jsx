@@ -10,6 +10,7 @@ export const CategoriesContext = createContext(null);
 export default function App() {
   const [tasks, tasksDispatch] = useReducer(tasksReducer, getTasksFromStorage());
   const [categories, setCategories] = useState(getCategoriesFromStorage);
+  const [selectedCategory, setSelectedCategory] = useState("All")
 
   useEffect(() => {
     localStorage.setItem('tasks', JSON.stringify(tasks))
@@ -18,8 +19,8 @@ export default function App() {
   return (
     <CategoriesContext.Provider value={{ categories, setCategories }} >
       <div className='bg-orange-100 h-[700px] w-[760px] pt-2 flex flex-col'>
-        <CatergoryBar />
-        <TasksBoard tasks={tasks} tasksDispatch={tasksDispatch} />
+        <CatergoryBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <TasksBoard tasks={tasks} tasksDispatch={tasksDispatch} selectedCategory={selectedCategory} />
         <InputArea tasksDispatch={tasksDispatch} />
       </div>
     </CategoriesContext.Provider>

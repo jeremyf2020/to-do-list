@@ -21,9 +21,9 @@ export default function InputArea({ tasksDispatch }) {
             return (categories["none"])
         }
         // Check the existing categories to ensure each one is unique
-        for (const property in categories) {
-            if (property.toLowerCase() === newStr.toLowerCase()) {
-                return (categories[newStr])
+        for (const [key, value] of Object.entries(categories)) {
+            if (value.toLowerCase() === newStr.toLowerCase()) {
+                return key;
             }
         }
         // Add a new category if no duplicate
