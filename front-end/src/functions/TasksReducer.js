@@ -9,6 +9,9 @@ export default function tasksReducer(tasks, action) {
         case "delete_task": {
             return tasks.filter(task => task.id !== action.id)
         }
+        case "delete_task_by_categories": {
+            return tasks.filter(task => task.category_id !== action.id)
+        }
         case "toggle_task": {
             return tasks.map(t => {
                 if (t.id === action.id) {

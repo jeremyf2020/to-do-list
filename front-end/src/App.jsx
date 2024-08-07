@@ -19,7 +19,7 @@ export default function App() {
   return (
     <CategoriesContext.Provider value={{ categories, setCategories }} >
       <div className='bg-orange-100 h-[700px] w-[760px] pt-2 flex flex-col'>
-        <CatergoryBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} />
+        <CatergoryBar selectedCategory={selectedCategory} setSelectedCategory={setSelectedCategory} tasksDispatch={tasksDispatch} />
         <TasksBoard tasks={tasks} tasksDispatch={tasksDispatch} selectedCategory={selectedCategory} />
         <InputArea tasksDispatch={tasksDispatch} />
       </div>
