@@ -11,17 +11,13 @@ export default function CatergoryBar({ selectedCategory, setSelectedCategory, ta
     const [categoryToDelete, setCategoryToDelete] = useState(null);
 
     function handleEdit() {
-        if (editingCategory) {
-            // tasksDispatch({ type: 'edit_task', id: task.id, text: taskContextRef.current.value });
-        }
         setEditingCategory(!editingCategory);
     }
 
-    function handAdd() {
-        if (editingCategory) {
-            // tasksDispatch({ type: 'edit_task', id: task.id, text: taskContextRef.current.value });
-        }
-        setEditingCategory(!editingCategory);
+    function handleAdd() {
+        const newUUID = crypto.randomUUID();
+        setCategories({ ...categories, [newUUID]: "" });
+        setEditingCategory(true)
     }
 
     function handleDelete(categoryId) {
@@ -66,6 +62,7 @@ export default function CatergoryBar({ selectedCategory, setSelectedCategory, ta
             </div >
             <div className="flex-shrink-0  flex items-center ">
                 <button className='size-6 text-base text-zinc-400' onClick={handleEdit}>{editingCategory ? <Save size={16} /> : <Pencil size={16} />}</button>
+                <button className='size-6 text-base text-zinc-400' onClick={handleAdd}><CirclePlus size={16} strokeWidth={2} /></button>
                 {/* <button className='size-6 text-base text-zinc-400' onClick={handAdd}>{editingCategory ? <Save size={16} /> : <Pencil size={16} />}</button> */}
                 <div>Login</div>
             </div>

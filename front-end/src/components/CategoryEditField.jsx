@@ -1,10 +1,10 @@
 import { Pencil, X, Save } from 'lucide-react';
-import React, { useContext, useRef } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import { CategoriesContext } from "../App";
 
 export default function CategoryEditField({ selectedCategory, setSelectedCategory, value, objkey, editingCategory, handleDelete }) {
     const fieldRef = useRef(value)
-    const { categories, setCategories } = useContext(CategoriesContext);
+    const { setCategories } = useContext(CategoriesContext);
 
     function handleSave(objkey) {
         setCategories(prevCategories => ({
@@ -12,6 +12,12 @@ export default function CategoryEditField({ selectedCategory, setSelectedCategor
             [objkey]: fieldRef.current.value
         }));
     }
+
+    useEffect(() => {
+        if (value === "") {
+            fieldRef.current.focus();
+        }
+    }, []);
 
     return (
         <div className='relative'>

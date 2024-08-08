@@ -17,10 +17,8 @@ This project is a to-do list application built using React for the front end, No
 
    - Local Storage
    - modify Task Function
-
-   --- finished ---
-
-   refactor code, use useContext for category?
+     refactor code, use useContext for category?
+     --- finished ---
 
 2. CSS
 
