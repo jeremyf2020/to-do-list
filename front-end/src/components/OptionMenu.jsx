@@ -44,7 +44,7 @@ export default function OptionMenu({ showTimeError }) {
 
 const CustomInput = forwardRef(({ disableCustomInput }, ref) => {
     return (
-        <input className='rounded-r-md px-2' name="category" disabled={disableCustomInput} ref={ref}></input>
+        <input autoComplete='off' className='rounded-r-md px-2' name="category" disabled={disableCustomInput} ref={ref}></input>
     );
 });
 
