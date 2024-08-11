@@ -19,10 +19,12 @@ export default function TaskLine({ task, tasksDispatch }) {
     }, [editing]);
 
     return (
-        <li className='bg-white flex justify-between rounded-md mb-1'>
+        <li className='bg-white flex justify-between rounded-md mb-1' onDoubleClick={handleEdit}>
             {editing ?
                 <input className="w-full rounded-l-md text-lg pl-2 " type="text" defaultValue={task.text} ref={taskContextRef} /> :
-                <div className='rounded-md text-lg pl-2 inline-flex items-center align-middle cursor-pointer' onClick={() => tasksDispatch({ type: 'toggle_task', id: task.id, done: task.done })}>
+                <div className='rounded-md text-lg pl-2 inline-flex items-center align-middle cursor-pointer'
+
+                    onClick={() => tasksDispatch({ type: 'toggle_task', id: task.id, done: task.done })}>
                     {task.done ? <SquareCheckBig size={16} strokeWidth={1} /> : <Square size={16} strokeWidth={1} />}
                     <div className={`ml-2 ${task.done ? 'line-through' : ''}`} >
                         {task.text}
